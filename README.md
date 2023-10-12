@@ -1,7 +1,7 @@
 # cordova-plugin-navigation
 
 #### 介绍
-导航插件 （只支持百度 、腾讯、高德三个地图）
+导航插件 （只支持百度 、腾讯、高德、苹果自带导航）
 
 #### 软件架构
 软件架构说明
@@ -9,7 +9,7 @@
 
 #### 安装教程
 
-1. cordova plugin add 插件地址
+cordova plugin add https://github.com/gao12yuan/cordova-plugin-navigation.git
 
 
 #### 使用说明
