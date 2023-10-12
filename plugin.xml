@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-navigation" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>NavigationPlugin</name> 
+    <js-module name="NavigationPlugin" src="www/NavigationPlugin.js">
+        <clobbers target="cordova.plugins.NavigationPlugin" />
+    </js-module>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="NavigationPlugin">
+                <param name="ios-package" value="NavigationPlugin" />
+            </feature>
+        </config-file>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>baidumap</string>
+                <string>iosamap</string>
+                <string>qqmap</string>
+            </array>
+        </config-file>
+        <source-file src="src/ios/NavigationPlugin.m" />
+     </platform>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="NavigationPlugin">
+                <param name="android-package" value="cordova.plugin.navigation.NavigationPlugin" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <queries>
+                <package android:name="com.baidu.BaiduMap" />
+                <package android:name="com.autonavi.minimap" />
+                <package android:name="com.tencent.map" />
+            </queries>
+        </config-file>
+
+        <source-file src="src/android/NavigationPlugin.java" target-dir="src/cordova/plugin/NavigationPlugin" />
+    </platform>
+</plugin>

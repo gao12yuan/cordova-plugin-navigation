@@ -1,0 +1,16 @@
+{
+    "name": "NavigationPlugin",
+    "version": "1.0.0",
+    "description": "调用第三方地图应用",
+    "cordova": {
+        "id": "cordova-plugin-navigation",
+        "platforms": [
+            "android", "ios"
+        ]
+    },
+    "keywords": [
+        "ecosystem:cordova"
+    ],
+    "author": "",
+    "license": "ISC"
+}
