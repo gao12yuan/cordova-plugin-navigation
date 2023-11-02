@@ -3,9 +3,6 @@
 #### 介绍
 导航插件 （只支持百度 、腾讯、高德、苹果自带导航）
 
-#### 软件架构
-软件架构说明
-
 
 #### 安装教程
 
@@ -14,7 +11,7 @@ cordova plugin add https://github.com/gao12yuan/cordova-plugin-navigation.git
 
 #### 使用说明
 
-1.  android 10以上 获取本地的导航插件 需要在androidManifest.xml里添加一下代码
+1.  android 10以上 获取本地的导航插件 需要在androidManifest.xml里添加以下代码
      <package android:name="com.baidu.BaiduMap" />
      <package android:name="com.autonavi.minimap" />
      <package android:name="com.tencent.map" />
@@ -24,20 +21,34 @@ cordova plugin add https://github.com/gao12yuan/cordova-plugin-navigation.git
         <string>iosamap</string>
         <string>qqmap</string>
 
+3. 唤醒导航参数说明 
+```java
+   navOptions = {
+        longitude: number, //  经度
+        latitude: number, // 纬度
+        tName: string, // 目的地
+        mapType: string, // 打开的软件 只支持 腾讯：tengxun 高德：gaode 百度： baidu  苹果： apple
+   }
+```
+示例：
+  #### 唤醒地图：（高德）
+  ```java
+  // mapType： tengxun 腾讯地图  baidu 百度地图 
+  let navOptions = {
+        longitude: 116.315666,
+        latitude: 39.885679,
+        tName: "北京电力医院",
+        mapType: "gaode"
+  }
+  window.cordova.plugins['NavigationPlugin'].wakeUpNavigation(navOptions).then( (res:any) => {})
+ ```
+  #### 获取导航列表
+  ```java
+  window.cordova.plugins['NavigationPlugin'].getMapSoftwareList().then( (res:any) => {
+    // res.value 是导航集
+
+ })
+ ```
 
 #### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+GAOYUAN
